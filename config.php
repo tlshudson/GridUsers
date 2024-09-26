@@ -4,5 +4,5 @@
     define('PASS', '985559961');
     define('BASE', 'cadastro');
 
-    $conn = new MySQLi(HOST,USER,PASS,BASE);
+    $conn = new mysqli(HOST,USER,PASS,BASE);
 ?>
