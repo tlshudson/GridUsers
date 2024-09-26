@@ -13,6 +13,9 @@
             if ($res==true) {
                 print "<script>alert('Cadastro realizado com sucesso!');</script>";
                 print "<script>location.href='?page=listar';</script>";
+            }else {
+                print "<script>alert('Cadastro não realizado!');</script>";
+                print "<script>location.href='?page=listar';</script>";
             }
             break;
 
