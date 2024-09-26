@@ -3,12 +3,17 @@
         case 'cadastrar':
             $nome = $_POST["nome"];
             $email = $_POST["email"];
-            $senha = $_POST["senha"];
+            $senha = md5($_POST["senha"]);
             $data_nasc = $_POST["data_nasc"];
 
             $sql = "INSERT INTO `usuarios`(`nome`, `email`, `senha`, `data_nascimento`) VALUES ('{$nome}','{$email}','{$senha}','{$data_nasc}')";
 
             $res = $conn->query($sql);
+
+            if ($res==true) {
+                print "<script>alert('Cadastro realizado com sucesso!');</script>";
+                print "<script>location.href='?page=listar';</script>";
+            }
             break;
 
         case 'editar':
