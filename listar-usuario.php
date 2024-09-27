@@ -23,8 +23,9 @@
             print "<td>" . $row->email . "</td>";
             print "<td>" . $row->data_nascimento . "</td>";
             print "<td>
-            <button onclick=\"location.href='?page=editar&id=" . $row->id . "';\" class='btn btn-info'>Editar</button>
-            <button type='button' class='btn btn-danger'>Deletar</button>
+                <button onclick=\"location.href='?page=editar&id=" . $row->id . "';\" class='btn btn-info'>Editar</button>
+            
+                <button onclick=\"if(confirm('Deseja excluir?')){location.href='?page=salvar&acao=excluir&id=" . $row->id . "';}else{false;}\" class='btn btn-danger'>Excluir</button>
             </td>"; 
             print "</tr>";
         }

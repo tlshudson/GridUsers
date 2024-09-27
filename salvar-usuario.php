@@ -43,7 +43,14 @@
                 break;
                 
                 case 'excluir':
-                    # code...
+                    $sql = "DELETE FROM `usuarios` WHERE id=".$_REQUEST["id"];
+                    if ($res==true) {
+                        print "<script>alert('Usuário excluído com sucesso!');</script>";
+                        print "<script>location.href='?page=listar';</script>";
+                    }else {
+                        print "<script>alert('Não foi possível excluir o usuário!');</script>";
+                        print "<script>location.href='?page=listar';</script>";
+                    }
                     break;
                     
         default:
