@@ -3,9 +3,9 @@
 <?php
     $sql = "SELECT * FROM usuarios";
 
-    $res = $conn->query($sql);
+    $res = pg_query($dbconn, $sql);
 
-    $qtd = $res->num_rows;
+    $qtd = pg_num_rows($res);
 
     if ($qtd > 0) {
         print "<table class='table table-hover table-striped table-bordered'>";
@@ -16,7 +16,7 @@
         print "<th>Data de Nascimento</th>";
         print "<th>Ações</th>";
         print "</tr>";
-        while ($row =$res->fetch_object()) {
+        while ($row =pg_fetch_object($res)) {
             print "<tr>";
             print "<td>" . $row->id . "</td>";
             print "<td>" . $row->nome . "</td>";

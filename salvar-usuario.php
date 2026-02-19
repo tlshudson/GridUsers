@@ -8,7 +8,7 @@
 
             $sql = "INSERT INTO `usuarios`(`nome`, `email`, `senha`, `data_nascimento`) VALUES ('{$nome}','{$email}','{$senha}','{$data_nasc}')";
             
-            $res = $conn->query($sql);
+            $res = pg_query($dbconn, $sql);
             
             if ($res==true) {
                 print "<script>alert('Cadastro realizado com sucesso!');</script>";
@@ -54,7 +54,6 @@
                     break;
                     
         default:
-            # code...
             break;
     }
 ?>

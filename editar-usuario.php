@@ -1,8 +1,14 @@
 <h1>Editar Usuários</h1>
 <?php
-    $sql = "SELECT * FROM `usuarios` WHERE id=".$_REQUEST["id"];
-    $res = $conn->query($sql);
-    $row = $res->fetch_object();
+    $sql = "SELECT * FROM usuarios WHERE id=" . (int)$_REQUEST["id"];
+    
+    $res = pg_query($dbconn, $sql);
+
+    if ($res) {
+        $row = pg_fetch_object($res);
+    } else {
+        die("Erro na consulta: " . pg_last_error($dbconn));
+    }
 ?>
 <form action="?page=salvar" method="POST">
     <input type="hidden" name="acao" value="cadastrar">
